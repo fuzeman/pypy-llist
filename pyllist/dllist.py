@@ -140,7 +140,7 @@ class dllist(object):
     def appendleft(self, x):
         node = dllistnode(x, None, self.__first, self)
 
-        if self.__first is self.__last:
+        if self.__last is None:
             self.__last = node
         self.__first = node
         self.__size += 1

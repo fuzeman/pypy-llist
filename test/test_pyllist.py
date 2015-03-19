@@ -321,6 +321,14 @@ class testdllist(unittest.TestCase):
         self.assertEqual(ll.first, new_node)
         self.assertEqual(ll, ref)
 
+    def test_appendleft_empty(self):
+        ll = dllist()
+        ll.appendleft(10)
+        ll.appendleft(20)
+
+        self.assertEqual(ll.first.value, 20)
+        self.assertEqual(ll.last.value, 10)
+
     def test_appendright(self):
         ll = dllist(xrange(4))
         ref = dllist([0, 1, 2, 3, 10])
@@ -334,6 +342,14 @@ class testdllist(unittest.TestCase):
         self.assertEqual(prev.next, new_node)
         self.assertEqual(ll.last, new_node)
         self.assertEqual(ll, ref)
+
+    def test_appendright_empty(self):
+        ll = dllist()
+        ll.appendright(10)
+        ll.appendright(20)
+
+        self.assertEqual(ll.first.value, 10)
+        self.assertEqual(ll.last.value, 20)
 
     def test_pop(self):
         ref = range(0, 1024, 4)
